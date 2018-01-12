@@ -18,6 +18,9 @@ public class GameSolver {
 		int quarter = game.getUpperBound()/4;
 		
 		while(!game.guess(middle)){
+			
+	
+			
 			if(game.getMessage().contains("too large")){
 				middle = middle-quarter;
 				
