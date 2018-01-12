@@ -17,6 +17,7 @@ public class GameConsole {
 		System.out.println( game.toString() );
 		
 		// This is just an example.
+		
 		while(true){
 		System.out.println( game.getMessage() );
 		System.out.print("Your answer? ");

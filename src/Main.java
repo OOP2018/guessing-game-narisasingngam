@@ -11,5 +11,6 @@ public class Main {
 		GameConsole ui = new GameConsole( );
 		int solution = ui.play( game );
 		System.out.println("play() returned "+solution);
+		System.out.println("You guess " + game.getCount()+ " time");
 	}
 }
