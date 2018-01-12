@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * 
  * Automatically find the secret to any NumberGame.
@@ -12,12 +14,25 @@ public class GameSolver {
 	 */
 	
 	public int play(NumberGame game){
-		int num = 0;
-		while(true){
-			num++;
-			if(game.guess(num)) break;
+		int middle = game.getUpperBound()/2;
+		int quarter = game.getUpperBound()/4;
+		
+		while(!game.guess(middle)){
+			if(game.getMessage().contains("too large")){
+				middle = middle-quarter;
+				
+			}
+			else if(game.getMessage().contains("too small")){
+				middle = middle+quarter;
+			}
+			if(quarter!=1){
+				quarter=quarter/2;
+			}
+			
+			System.out.println(middle);
 		}
-		return num;
+		return middle;
+		
 		
 	}
 

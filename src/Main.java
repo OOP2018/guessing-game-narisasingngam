@@ -9,7 +9,8 @@ public class Main {
 		int upperBound = 100;
 		NumberGame game = new NarisaGame(upperBound);
 		GameConsole ui = new GameConsole( );
-		int solution = ui.play( game );
+		GameSolver u = new GameSolver();
+		int solution = u.play( game );
 		System.out.println("play() returned "+solution);
 		System.out.println("You guess " + game.getCount()+ " times.");
 	}
