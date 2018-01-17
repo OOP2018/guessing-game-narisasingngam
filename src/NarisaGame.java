@@ -22,11 +22,12 @@ public class NarisaGame extends NumberGame {
 
 	}
 
-	@Override
+	
 	/**
 	 * @param number is the number that you guess.
 	 * @return the correct number
 	 */
+	@Override
 	public boolean guess(int number) {
 		count++;
 		if (number == secret) {
@@ -50,11 +51,12 @@ public class NarisaGame extends NumberGame {
 
 	
 	public String toString() {
-		return "Guess a secret number between 1 and 100";
+		return "Guess a secret number between 1 and "+ upperBound;
 	}
 	
-	@Override
+	
 	/** To count the time that you guess */
+	@Override
 	public int getCount(){
 		return count;
 	}

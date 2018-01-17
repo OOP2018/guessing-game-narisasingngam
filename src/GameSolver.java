@@ -3,40 +3,40 @@ import java.util.Random;
 /**
  * 
  * Automatically find the secret to any NumberGame.
- *@author Narisa Singngam
+ * 
+ * @author Narisa Singngam
  */
 public class GameSolver {
-	
+
 	/**
-	 * To solve the game 
+	 * To solve the game
+	 * 
 	 * @param game is the NumberGame to solve
 	 * @return The correct answer
 	 */
-	
-	public int play(NumberGame game){
-		int middle = game.getUpperBound()/2;
-		int quarter = game.getUpperBound()/4;
-		
-		while(!game.guess(middle)){
-			
-	
-			
-			if(game.getMessage().contains("too large")){
-				middle = middle-quarter;
-				
+
+	public int play(NumberGame game) {
+		int max = game.getUpperBound();
+		int min = 1;
+		int guess = min + (max - min) / 2;
+
+		while (!game.guess(guess)) {
+
+			if (game.getMessage().contains("too large")) {
+				max = guess - 1;
+				guess = min + (max - min) / 2;
+
 			}
-			else if(game.getMessage().contains("too small")){
-				middle = middle+quarter;
+			else if (game.getMessage().contains("too small")) {
+				min = guess + 1;
+				guess = min + (max - min) / 2;
 			}
-			if(quarter!=1){
-				quarter=quarter/2;
-			}
-			
-			System.out.println(middle);
+
+			System.out.println(guess);
+
 		}
-		return middle;
-		
-		
+		return guess;
+
 	}
 
 }
