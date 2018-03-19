@@ -1,3 +1,4 @@
+package game;
 import java.util.Random;
 
 /**
@@ -19,13 +20,13 @@ public class GameSolver {
 	public int play(NumberGame game) {
 		int max = game.getUpperBound();
 		int min = 1;
-		int guess = 0;
+		int guess = min+(max - min) / 2;
 		
-		
+		System.out.println(guess);
 
 		while (!game.guess(guess)) {
-
 			
+			System.out.println(game.getMessage());
 
 			if (game.getMessage().contains("too large")) {
 				max = guess - 1;
@@ -36,7 +37,7 @@ public class GameSolver {
 			}
 			guess = min + (max - min) / 2;
 
-		System.out.println(guess);
+			System.out.println(guess);
 
 		}
 		return guess;

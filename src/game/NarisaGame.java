@@ -1,3 +1,4 @@
+package game;
 import java.util.Random;
 
 /**
@@ -18,7 +19,7 @@ public class NarisaGame extends NumberGame {
 		long seed = System.nanoTime();
 		Random random = new Random(seed);
 		this.secret = random.nextInt(upperBound)+1;
-		super.setMessage("I'm thinking of a number between 1 -" + upperBound);
+		super.setMessage("I'm thinking of a number between 1-" + upperBound);
 
 	}
 
@@ -39,7 +40,12 @@ public class NarisaGame extends NumberGame {
 		} else if (number < secret) {
 			setMessage("this number is too small");
 		}
+		
+		setChanged();
+		notifyObservers();
+		
 		return false;
+		
 	}
 
 	/** 
